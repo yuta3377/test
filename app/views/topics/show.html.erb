@@ -1,4 +1,18 @@
 <h1><%= @topic.title %></h1>
-<% @posts.each_with_index do |post, i| %>
-  <p><%= i + 1 %>. <%= post.name %> => <%= post.body %></p>
+<p><%= "-"*70 %></p>
+<% @posts.each do |post| %>
+  <p>
+    <%= post.body %> (<%= post.name %>)
+  </p>
+<% end %>
+<p><%= "-"*70 %></p>
+
+<h3>新規投稿</h3>
+<%= form_for @new_post, url: posts_path do |f| %>
+  <p>名前</p>
+  <p><%= f.text_field :name %></p>
+  <p>投稿内容</p>
+  <p><%= f.text_area :body %></p>
+  <p><%= f.hidden_field :topic_id %></p>
+  <%= f.submit %>
 <% end %>
