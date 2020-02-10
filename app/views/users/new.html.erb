@@ -1,0 +1,16 @@
+<h2>ログイン</h2>
+<%= form_for @user, url: users_path do |f| %>
+  <p>名前</p>
+  <p><%= f.text_field :name %></p>
+
+  <p>Email</p>
+  <p><%= f.email_field :email %></p>
+
+  <p>パスワード</p>
+  <p><%= f.password_field :password %></p>
+
+  <p>パスワード(確認)</p>
+  <p><%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.submit %>
+<% end %>
